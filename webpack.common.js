@@ -32,5 +32,8 @@ module.exports = {
     clean: true,
     publicPath: '/',
   },
-  plugins: [new ForkTsCheckerWebpackPlugin(), new EnvironmentPlugin(['REACT_APP_SERVER_URL'])],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin(),
+    new EnvironmentPlugin(['REACT_APP_SERVER_URL', 'REACT_APP_GITHUB_CLIENT_ID', 'REACT_APP_GITHUB_CLIENT_SECRETS']),
+  ],
 };
