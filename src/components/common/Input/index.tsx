@@ -3,10 +3,12 @@ import React, { VFC } from 'react';
 import { MakeOptional } from '@/types/utils';
 import { SizeProps, LayoutProps } from '@/types/style';
 
+import Theme from '@/styles/Theme';
+
 import * as S from './style';
 
-export interface InputProps extends SizeProps, MakeOptional<LayoutProps, 'boxShadow'> {
-  type: 'text';
+export interface InputProps extends SizeProps, Partial<LayoutProps> {
+  type: 'text' | 'search';
   id: string;
   name: string;
   value: string;
@@ -21,8 +23,8 @@ const Input: VFC<InputProps> = ({
   name,
   width,
   height,
-  borderRadius,
-  backgroundColor,
+  borderRadius = 0,
+  backgroundColor = Theme.M_1,
   value,
   maxLength,
   placeholder,
