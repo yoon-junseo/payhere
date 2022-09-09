@@ -1,1 +1,3 @@
-export const Theme = {};
+export default {
+  M_1: '#FFFFFF',
+};
