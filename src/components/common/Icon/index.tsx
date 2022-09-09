@@ -16,7 +16,7 @@ const IconWrapper = styled.div<IconWrapperProps>`
       transform: `rotate(${props.rotate}deg)`,
     }};
   ${(props) =>
-    props.isButton &&
+    props.hasCursor &&
     css`
       cursor: pointer;
     `}
@@ -27,11 +27,11 @@ const IconWrapper = styled.div<IconWrapperProps>`
   }
 `;
 
-const Icon: VFC<IconProps> = ({ icon, width, height, rotate, isButton = false, onClick, ...props }: IconProps) => {
+const Icon: VFC<IconProps> = ({ icon, width, height, rotate, hasCursor = false, onClick, ...props }: IconProps) => {
   const IconComponent = Icons[icon];
 
   return (
-    <IconWrapper {...props} width={width} height={height} rotate={rotate} isButton={isButton} onClick={onClick}>
+    <IconWrapper {...props} width={width} height={height} rotate={rotate} hasCursor={hasCursor} onClick={onClick}>
       <IconComponent {...props} width={width} height={height} />
     </IconWrapper>
   );
