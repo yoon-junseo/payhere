@@ -34,6 +34,15 @@ module.exports = {
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
-    new EnvironmentPlugin(['REACT_APP_SERVER_URL', 'REACT_APP_GITHUB_CLIENT_ID', 'REACT_APP_GITHUB_CLIENT_SECRETS']),
+    new EnvironmentPlugin([
+      'REACT_APP_GITHUB_API_URL',
+      'REACT_APP_FIREBASE_API_KEY',
+      'REACT_APP_FIREBASE_AUTH_DOMAIN',
+      'REACT_APP_FIREBASE_PROJECT_ID',
+      'REACT_APP_FIREBASE_STORAGE_BUCKET',
+      'REACT_APP_FIREBASE_MESSAGINGSENDER_ID',
+      'REACT_APP_FIREBASE_APP_ID',
+      'REACT_APP_FIREBASE_MEASUREMENT_ID',
+    ]),
   ],
 };
