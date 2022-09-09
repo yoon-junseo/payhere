@@ -6,7 +6,7 @@ export interface IconWrapperProps {
   width?: number;
   height?: number;
   rotate?: number;
-  isButton?: boolean;
+  hasCursor?: boolean;
   onClick?: () => void;
 }
 
