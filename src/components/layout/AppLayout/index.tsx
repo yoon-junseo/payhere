@@ -10,10 +10,10 @@ export interface AppLayoutProps {
 
 const AppLayout = ({ children }: AppLayoutProps) => {
   return (
-    <main>
+    <>
       <GNB />
       <S.Container>{children}</S.Container>
-    </main>
+    </>
   );
 };
 
