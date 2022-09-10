@@ -1,0 +1,97 @@
+import React from 'react';
+import { Story } from '@storybook/react';
+
+import AvatarList, { AvatarListProps } from '@/components/avatar/AvatarList';
+
+export default {
+  component: AvatarList,
+  title: 'avatar/AvatarList',
+};
+
+const Template: Story<AvatarListProps> = (args: AvatarListProps) => <AvatarList {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  assignees: [
+    {
+      login: 'yoon-junseo',
+      id: 28842641,
+      node_id: 'MDQ6VXNlcjI4ODQyNjQx',
+      avatar_url: 'https://avatars.githubusercontent.com/u/28842641?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/yoon-junseo',
+      html_url: 'https://github.com/yoon-junseo',
+      followers_url: 'https://api.github.com/users/yoon-junseo/followers',
+      following_url: 'https://api.github.com/users/yoon-junseo/following{/other_user}',
+      gists_url: 'https://api.github.com/users/yoon-junseo/gists{/gist_id}',
+      starred_url: 'https://api.github.com/users/yoon-junseo/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/yoon-junseo/subscriptions',
+      organizations_url: 'https://api.github.com/users/yoon-junseo/orgs',
+      repos_url: 'https://api.github.com/users/yoon-junseo/repos',
+      events_url: 'https://api.github.com/users/yoon-junseo/events{/privacy}',
+      received_events_url: 'https://api.github.com/users/yoon-junseo/received_events',
+      type: 'User',
+      site_admin: false,
+    },
+    {
+      login: 'yoon-junseo',
+      id: 28842641,
+      node_id: 'MDQ6VXNlcjI4ODQyNjQx',
+      avatar_url: 'https://avatars.githubusercontent.com/u/28842641?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/yoon-junseo',
+      html_url: 'https://github.com/yoon-junseo',
+      followers_url: 'https://api.github.com/users/yoon-junseo/followers',
+      following_url: 'https://api.github.com/users/yoon-junseo/following{/other_user}',
+      gists_url: 'https://api.github.com/users/yoon-junseo/gists{/gist_id}',
+      starred_url: 'https://api.github.com/users/yoon-junseo/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/yoon-junseo/subscriptions',
+      organizations_url: 'https://api.github.com/users/yoon-junseo/orgs',
+      repos_url: 'https://api.github.com/users/yoon-junseo/repos',
+      events_url: 'https://api.github.com/users/yoon-junseo/events{/privacy}',
+      received_events_url: 'https://api.github.com/users/yoon-junseo/received_events',
+      type: 'User',
+      site_admin: false,
+    },
+    {
+      login: 'yoon-junseo',
+      id: 28842641,
+      node_id: 'MDQ6VXNlcjI4ODQyNjQx',
+      avatar_url: 'https://avatars.githubusercontent.com/u/28842641?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/yoon-junseo',
+      html_url: 'https://github.com/yoon-junseo',
+      followers_url: 'https://api.github.com/users/yoon-junseo/followers',
+      following_url: 'https://api.github.com/users/yoon-junseo/following{/other_user}',
+      gists_url: 'https://api.github.com/users/yoon-junseo/gists{/gist_id}',
+      starred_url: 'https://api.github.com/users/yoon-junseo/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/yoon-junseo/subscriptions',
+      organizations_url: 'https://api.github.com/users/yoon-junseo/orgs',
+      repos_url: 'https://api.github.com/users/yoon-junseo/repos',
+      events_url: 'https://api.github.com/users/yoon-junseo/events{/privacy}',
+      received_events_url: 'https://api.github.com/users/yoon-junseo/received_events',
+      type: 'User',
+      site_admin: false,
+    },
+    {
+      login: 'yoon-junseo',
+      id: 28842641,
+      node_id: 'MDQ6VXNlcjI4ODQyNjQx',
+      avatar_url: 'https://avatars.githubusercontent.com/u/28842641?v=4',
+      gravatar_id: '',
+      url: 'https://api.github.com/users/yoon-junseo',
+      html_url: 'https://github.com/yoon-junseo',
+      followers_url: 'https://api.github.com/users/yoon-junseo/followers',
+      following_url: 'https://api.github.com/users/yoon-junseo/following{/other_user}',
+      gists_url: 'https://api.github.com/users/yoon-junseo/gists{/gist_id}',
+      starred_url: 'https://api.github.com/users/yoon-junseo/starred{/owner}{/repo}',
+      subscriptions_url: 'https://api.github.com/users/yoon-junseo/subscriptions',
+      organizations_url: 'https://api.github.com/users/yoon-junseo/orgs',
+      repos_url: 'https://api.github.com/users/yoon-junseo/repos',
+      events_url: 'https://api.github.com/users/yoon-junseo/events{/privacy}',
+      received_events_url: 'https://api.github.com/users/yoon-junseo/received_events',
+      type: 'User',
+      site_admin: false,
+    },
+  ],
+};
