@@ -24,7 +24,6 @@ export interface RepositoryState extends Id, NodeId, RepositoryUrlState {
   language: string | null;
   forks_count: number;
   open_issues_count: number;
-  master_branch: string;
   default_branch: string;
   score: number;
   forks: number;
