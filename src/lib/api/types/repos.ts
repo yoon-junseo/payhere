@@ -1,4 +1,4 @@
-import { Id, NodeId, UrlState, RepositoryUrlState, OwnerState } from '@/lib/api/types';
+import { Id, NodeId, UrlState, RepositoryUrlState, UserState } from '@/lib/api/types';
 
 export interface LicenseState extends UrlState {
   title: string;
@@ -12,11 +12,11 @@ export interface RepositoryState extends Id, NodeId, RepositoryUrlState {
   name: string;
   full_name: string;
   private: boolean;
-  owner: OwnerState | null;
+  owner: UserState;
   description: string | null;
   fork: boolean;
   created_at: string;
-  update_at: string;
+  updated_at: string;
   pushed_at: string;
   size: number;
   stargazers_count: number;
@@ -40,6 +40,9 @@ export interface RepositoryState extends Id, NodeId, RepositoryUrlState {
   disabled: boolean;
   visibility: string;
   license: LicenseState[] | null;
+  allow_forking: boolean;
+  is_template: boolean;
+  web_commit_signoff_required: boolean;
 }
 
 export interface GetRepositoryIssuesProps {
