@@ -13,4 +13,5 @@ export const Wrapper = styled.input<SizeProps & MakeOptional<LayoutProps, 'boxSh
   padding-left: 10px;
 
   border: none;
+  outline: none;
 `;
