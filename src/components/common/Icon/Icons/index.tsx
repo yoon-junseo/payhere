@@ -1,3 +1,9 @@
+export { default as Bookmark } from './Bookmark';
+export { default as Closed } from './Closed';
+export { default as FilledBookmark } from './FilledBookmark';
+export { default as Fork } from './Fork';
 export { default as Github } from './Github';
+export { default as Opened } from './Opened';
 export { default as Search } from './Search';
 export { default as Spinner } from './Spinner';
+export { default as Watcher } from './Watcher';

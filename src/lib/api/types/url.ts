@@ -1,6 +1,6 @@
 export interface UrlState {
   url: string | null;
-  html_url: string | null;
+  html_url: string;
 }
 
 export interface UserUrlState extends UrlState {
@@ -16,7 +16,7 @@ export interface UserUrlState extends UrlState {
   received_events_url: string;
 }
 
-export interface RepositoryUrlState {
+export interface RepositoryUrlState extends UrlState {
   forks_url: string;
   keys_url: string;
   collaborators_url: string;

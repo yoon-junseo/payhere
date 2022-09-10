@@ -15,7 +15,7 @@ export interface ReactionState extends Omit<UrlState, 'html_url'> {
   hooray: number;
   confused: number;
   heart: number;
-  rocker: number;
+  rocket: number;
   eyes: number;
 }
 
@@ -49,6 +49,8 @@ export interface IssueState extends Id, NodeId, UrlState {
   assignees: UserState[];
   milestone: MilestoneState | null;
   active_lock_reason: string | null;
+  body: string;
+  reactions: ReactionState;
   comments: number;
   pull_request: UrlState & {
     diff_url: string | null;
@@ -60,5 +62,13 @@ export interface IssueState extends Id, NodeId, UrlState {
   updated_at: string;
   closed_by: UserState;
   author_association: string;
-  state_reason: string;
+  timeline_url: string;
+  performed_via_github_app: {
+    id: number;
+    slug: string;
+    node_id: string;
+    owner: UserState;
+  } | null;
+  state_reason: string | null;
+  draft: boolean;
 }

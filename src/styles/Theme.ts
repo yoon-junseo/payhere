@@ -6,10 +6,11 @@ const size = {
 
 export default {
   M_1: '#FFFFFF',
+  M_2: '#388E3C',
 
   F_1: '#000000',
-  F_2: '#A5A5A5',
-  F_3: '#ADADAD',
+  F_2: '#57606a',
+  F_3: '#62727b',
 
   mobile: `@media (max-width: ${size.mobile})`,
   tablet: `@media (max-width: ${size.tablet})`,
