@@ -7,9 +7,10 @@ export const Container = styled.div`
   max-width: 450px;
   min-height: 107px;
 
-  width: 100%;
+  box-sizing: border-box;
 
-  padding: 10px 15px;
+  width: 100%;
+  padding: 10px 10px;
 
   ${boxDesign(6)};
 `;
