@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-import { repositoryList, openedIssue } from '@/mock';
+import useStoreRepository from '@/hooks/useStoreRepository';
+
+import { openedIssue } from '@/mock';
 
 import AppLayout from '@/components/layout/AppLayout';
 
@@ -18,6 +20,8 @@ const RepositoryPage = () => {
 
   const [height, setHeight] = useState<number>(0);
 
+  const { repositoryList, onClickDelete } = useStoreRepository();
+
   useEffect(() => {
     if (!containerRef.current) return;
     setHeight(containerRef.current.clientHeight);
@@ -26,7 +30,7 @@ const RepositoryPage = () => {
   return (
     <AppLayout>
       <S.Container ref={containerRef}>
-        <StoredRepositoryList repositoryList={repositoryList} />
+        <StoredRepositoryList repositoryList={repositoryList} onClickDelete={onClickDelete} />
         <S.Section>
           <Text fontSize={18} fontWeight={700}>
             Issue 목록

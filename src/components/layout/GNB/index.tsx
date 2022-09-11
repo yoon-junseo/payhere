@@ -16,7 +16,6 @@ import * as S from './style';
 const GNB = () => {
   const { user } = useUser();
 
-  console.log(user);
   return (
     <S.Container>
       <S.InnerContainer>

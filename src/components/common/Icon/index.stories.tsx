@@ -44,8 +44,6 @@ const IconWrapper = styled.div`
 const Template = () => {
   const iconList: IconOption[] = Object.keys(Icons) as IconOption[];
 
-  console.log(Object.keys(Icons));
-
   return (
     <GridContainer>
       {iconList.map((icon) => (

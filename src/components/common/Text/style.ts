@@ -8,4 +8,6 @@ export const Wrapper = styled.span<FontSizeProps>`
   font-weight: ${({ fontWeight }) => fontWeight};
   line-height: ${({ lineHeight }) => lineHeight}px;
   letter-spacing: ${({ letterSpacing }) => letterSpacing}px;
+
+  word-break: break-all;
 `;

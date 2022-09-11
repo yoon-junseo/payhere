@@ -5,9 +5,8 @@ import { getSearchRepositories } from '@/lib/api/search';
 import * as swrKeys from '@/lib/constants/swrKeys';
 
 import useDebounce from '@/hooks/useDebounce';
+import useStoreRepository from '@/hooks/useStoreRepository';
 import useInfiniteScroll from '@/hooks/useInfiniteScroll';
-
-import { repositoryList } from '@/mock';
 
 import AppLayout from '@/components/layout/AppLayout';
 
@@ -28,6 +27,8 @@ const MainPage = () => {
 
   const [isLoading, debouncedValue] = useDebounce<string>(target, 500);
 
+  const { repositoryList, onClickStore, onClickDelete } = useStoreRepository();
+
   const { data, error, isValidating, ref } = useInfiniteScroll({
     key: swrKeys.GET_SEARCH_REPOSITORIES({ q: debouncedValue }),
     isPaused: () => debouncedValue === '',
@@ -46,7 +47,7 @@ const MainPage = () => {
   return (
     <AppLayout>
       <S.Container ref={containerRef}>
-        <StoredRepositoryList repositoryList={repositoryList} />
+        <StoredRepositoryList repositoryList={repositoryList} onClickDelete={onClickDelete} />
         <S.SearchContainer>
           <SearchInput target={target} isLoading={isLoading} onChange={onChange} />
           <S.GridContainer height={height - 70}>
@@ -54,7 +55,7 @@ const MainPage = () => {
               <>
                 {data.flat().map((repo: RepositoryState) => (
                   <S.List>
-                    <Repository {...repo} />
+                    <Repository repository={repo} icon="Plus" onClick={() => onClickStore('repository', repo)} />
                   </S.List>
                 ))}
                 <S.InfiniteScrollChecker ref={ref} />

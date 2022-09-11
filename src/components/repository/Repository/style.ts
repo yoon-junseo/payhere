@@ -4,6 +4,8 @@ import { boxDesign } from '@/styles/common';
 import Theme from '@/styles/Theme';
 
 export const Container = styled.div`
+  position: relative;
+
   max-width: 450px;
 
   box-sizing: border-box;
@@ -28,4 +30,11 @@ export const OtherInfoContainer = styled.div`
   & > :not(:last-child) {
     margin-right: 10px;
   }
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
 `;

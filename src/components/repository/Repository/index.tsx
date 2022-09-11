@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { RepositoryState } from '@/lib/api/types';
 
 import Anchor from '@/components/common/Anchor';
+import Icon from '@/components/common/Icon';
 import Text from '@/components/common/Text';
 import Spacer from '@/components/common/Spacer';
 
@@ -12,7 +13,13 @@ import Theme from '@/styles/Theme';
 
 import * as S from './style';
 
-const Repository = ({ ...repository }: RepositoryState) => {
+export interface RepositoryProps {
+  repository: RepositoryState;
+  icon: 'Plus' | 'X';
+  onClick: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const Repository = ({ repository, icon, onClick }: RepositoryProps) => {
   const iconWithCountList: IconWithCountProps[] = [
     { icon: 'Bookmark', count: repository.stargazers_count },
     {
@@ -29,8 +36,18 @@ const Repository = ({ ...repository }: RepositoryState) => {
     },
   ];
 
+  const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
+
+  const mouseOverHandler = () => {
+    setIsMouseOver(true);
+  };
+
+  const mouseLeaveHandler = () => {
+    setIsMouseOver(false);
+  };
+
   return (
-    <S.Container>
+    <S.Container onMouseOver={mouseOverHandler} onMouseLeave={mouseLeaveHandler}>
       <Text fontSize={16} fontWeight={600}>
         <Anchor href={repository.owner.html_url} target="_blank">
           [{repository.owner.login}]
@@ -48,6 +65,11 @@ const Repository = ({ ...repository }: RepositoryState) => {
           <IconWithCount key={`${icon}${count}`} icon={icon} count={count} />
         ))}
       </S.OtherInfoContainer>
+      {isMouseOver && (
+        <S.IconWrapper onClick={onClick}>
+          <Icon icon={icon} width={24} height={24} hasCursor />
+        </S.IconWrapper>
+      )}
     </S.Container>
   );
 };
