@@ -26,4 +26,4 @@ export const getSearchRepositories = ({
       per_page,
       page,
     },
-  ).then((res) => res.data);
+  ).then((res) => res.data.items);
