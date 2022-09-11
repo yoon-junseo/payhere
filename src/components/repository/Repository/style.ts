@@ -5,7 +5,6 @@ import Theme from '@/styles/Theme';
 
 export const Container = styled.div`
   max-width: 450px;
-  min-height: 107px;
 
   box-sizing: border-box;
 
