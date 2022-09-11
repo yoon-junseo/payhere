@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Icon from '@/components/common/Icon';
 import Input from '@/components/common/Input';
 
 import * as S from './style';
 
-const SearchInput = () => {
-  const [target, setTarget] = useState<string>('');
+export interface SearchInputProps {
+  target: string;
+  isLoading: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTarget(e.target.value);
-  };
-
+const SearchInput = ({ target, isLoading, onChange }: SearchInputProps) => {
   return (
     <S.Container>
       <Input
@@ -24,7 +24,7 @@ const SearchInput = () => {
         placeholder="public repository"
         onChange={onChange}
       />
-      <Icon icon="Search" hasCursor />
+      {isLoading ? <Icon icon="Spinner" width={20} height={20} /> : <Icon icon="Search" hasCursor />}
     </S.Container>
   );
 };

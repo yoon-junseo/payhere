@@ -31,6 +31,4 @@ export const InnerContainer = styled.ul`
   padding: 0px;
 `;
 
-export const List = styled.li`
-  cursor: pointer;
-`;
+export const List = styled.li``;

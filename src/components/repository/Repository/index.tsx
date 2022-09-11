@@ -43,7 +43,7 @@ const Repository = ({ ...repository }: RepositoryState) => {
       <S.DescriptionWrapper>{repository.description}</S.DescriptionWrapper>
       <Spacer y={10} />
       <S.OtherInfoContainer>
-        <Text fontColor={Theme.F_2}>TypeScript</Text>
+        <Text fontColor={Theme.F_2}>{repository.language}</Text>
         {iconWithCountList.map(({ icon, count }) => (
           <IconWithCount key={`${icon}${count}`} icon={icon} count={count} />
         ))}
