@@ -24,7 +24,7 @@ export const Container = styled.div`
 `;
 
 export const SearchContainer = styled.section`
-  max-width: 630px;
+  max-width: 640px;
 
   width: 100%;
   height: 90vh;
@@ -47,7 +47,6 @@ export const GridContainer = styled.ol<{ height: number }>`
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 123px;
 
   gap: 15px;
 
@@ -67,3 +66,11 @@ export const GridContainer = styled.ol<{ height: number }>`
 `;
 
 export const List = styled.li``;
+
+export const InfiniteScrollChecker = styled.div``;
+
+export const SpinnerWrapper = styled.div`
+  width: 100%;
+
+  margin-top: -70px;
+`;
