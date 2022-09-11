@@ -1,5 +1,6 @@
 const size = {
   mobile: '480px',
+  tabletM: '600px',
   tablet: '768px',
   desktop: '1024px',
 };
@@ -13,6 +14,7 @@ export default {
   F_3: '#62727b',
 
   mobile: `@media (max-width: ${size.mobile})`,
+  tabletM: `@media (max-width: ${size.tabletM})`,
   tablet: `@media (max-width: ${size.tablet})`,
   desktop: `@media (max-width: ${size.desktop})`,
 };

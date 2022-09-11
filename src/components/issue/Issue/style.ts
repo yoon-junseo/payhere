@@ -8,12 +8,14 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
 
+  box-sizing: border-box;
+
   width: 100%;
 
-  min-width: 320px;
+  max-width: 620px;
   min-height: 65px;
 
-  padding-left: 10px;
+  padding: 5px 0 5px 10px;
 
   ${boxDesign(6)};
 `;

@@ -5,11 +5,11 @@ import Theme from '@/styles/Theme';
 
 export const Container = styled.div`
   max-width: 450px;
-  min-height: 107px;
+
+  box-sizing: border-box;
 
   width: 100%;
-
-  padding: 10px 15px;
+  padding: 10px 10px;
 
   ${boxDesign(6)};
 `;

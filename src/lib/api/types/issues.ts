@@ -52,15 +52,14 @@ export interface IssueState extends Id, NodeId, UrlState {
   body: string;
   reactions: ReactionState;
   comments: number;
-  pull_request: UrlState & {
-    diff_url: string | null;
-    patch_url: string | null;
-    merged_at: string | null;
-  };
+  // pull_request: UrlState & {
+  //   diff_url: string | null;
+  //   patch_url: string | null;
+  //   merged_at: string | null;
+  // };
   closed_at: string | null;
   created_at: string;
   updated_at: string;
-  closed_by: UserState;
   author_association: string;
   timeline_url: string;
   performed_via_github_app: {
@@ -70,5 +69,5 @@ export interface IssueState extends Id, NodeId, UrlState {
     owner: UserState;
   } | null;
   state_reason: string | null;
-  draft: boolean;
+  // draft: boolean;
 }

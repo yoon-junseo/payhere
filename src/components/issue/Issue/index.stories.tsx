@@ -3,6 +3,8 @@ import { Story } from '@storybook/react';
 
 import { IssueState } from '@/lib/api/types';
 
+import { openedIssue, closedIssue } from '@/mock';
+
 import Issue from '@/components/issue/Issue';
 
 export default {
@@ -134,71 +136,4 @@ Open.args = {
 };
 
 export const Closed = Template.bind({});
-Closed.args = {
-  url: 'https://api.github.com/repos/Project-Boated/boated-FE/issues/55',
-  repository_url: 'https://api.github.com/repos/Project-Boated/boated-FE',
-  labels_url: 'https://api.github.com/repos/Project-Boated/boated-FE/issues/55/labels{/name}',
-  comments_url: 'https://api.github.com/repos/Project-Boated/boated-FE/issues/55/comments',
-  events_url: 'https://api.github.com/repos/Project-Boated/boated-FE/issues/55/events',
-  html_url: 'https://github.com/Project-Boated/boated-FE/pull/55',
-  id: 1357149364,
-  node_id: 'PR_kwDOHBgSIc4-HyMi',
-  number: 55,
-  title: '[FIX] Storybook',
-  user: {
-    login: 'yoon-junseo',
-    id: 28842641,
-    node_id: 'MDQ6VXNlcjI4ODQyNjQx',
-    avatar_url: 'https://avatars.githubusercontent.com/u/28842641?v=4',
-    gravatar_id: '',
-    url: 'https://api.github.com/users/yoon-junseo',
-    html_url: 'https://github.com/yoon-junseo',
-    followers_url: 'https://api.github.com/users/yoon-junseo/followers',
-    following_url: 'https://api.github.com/users/yoon-junseo/following{/other_user}',
-    gists_url: 'https://api.github.com/users/yoon-junseo/gists{/gist_id}',
-    starred_url: 'https://api.github.com/users/yoon-junseo/starred{/owner}{/repo}',
-    subscriptions_url: 'https://api.github.com/users/yoon-junseo/subscriptions',
-    organizations_url: 'https://api.github.com/users/yoon-junseo/orgs',
-    repos_url: 'https://api.github.com/users/yoon-junseo/repos',
-    events_url: 'https://api.github.com/users/yoon-junseo/events{/privacy}',
-    received_events_url: 'https://api.github.com/users/yoon-junseo/received_events',
-    type: 'User',
-    site_admin: false,
-  },
-  labels: [],
-  state: 'closed',
-  locked: false,
-  assignee: null,
-  assignees: [],
-  milestone: null,
-  comments: 0,
-  created_at: '2022-08-31T10:42:13Z',
-  updated_at: '2022-08-31T10:42:21Z',
-  closed_at: '2022-08-31T10:42:21Z',
-  author_association: 'COLLABORATOR',
-  active_lock_reason: null,
-  draft: false,
-  pull_request: {
-    url: 'https://api.github.com/repos/Project-Boated/boated-FE/pulls/55',
-    html_url: 'https://github.com/Project-Boated/boated-FE/pull/55',
-    diff_url: 'https://github.com/Project-Boated/boated-FE/pull/55.diff',
-    patch_url: 'https://github.com/Project-Boated/boated-FE/pull/55.patch',
-    merged_at: '2022-08-31T10:42:21Z',
-  },
-  body: '- #54',
-  reactions: {
-    url: 'https://api.github.com/repos/Project-Boated/boated-FE/issues/55/reactions',
-    total_count: 0,
-    '+1': 0,
-    '-1': 0,
-    laugh: 0,
-    hooray: 0,
-    confused: 0,
-    heart: 0,
-    rocket: 0,
-    eyes: 0,
-  },
-  timeline_url: 'https://api.github.com/repos/Project-Boated/boated-FE/issues/55/timeline',
-  performed_via_github_app: null,
-  state_reason: null,
-};
+Closed.args = closedIssue;
