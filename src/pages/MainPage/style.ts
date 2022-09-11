@@ -11,32 +11,15 @@ export const Container = styled.div`
 
   width: inherit;
   height: 90vh;
-`;
 
-export const StoredRepositoryListContainer = styled.aside`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin: 0 auto;
-
-  padding: 15px;
-
-  max-width: 350px;
-  width: 100%;
-
-  ${boxDesign(15)}
-
-  ${Theme.desktop} {
-    height: 500px;
-
-    overflow-y: auto;
-
-    margin-bottom: 30px;
+  & > :first-child {
+    margin: 0 auto;
   }
 
-  & > :not(:last-child) {
-    margin-bottom: 20px;
+  ${Theme.desktop} {
+    & > :nth-child(2) {
+      margin-top: 30px;
+    }
   }
 `;
 
