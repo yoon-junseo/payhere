@@ -12,9 +12,10 @@ import * as S from './style';
 
 export interface StoredRepositoryListProps {
   repositoryList: RepositoryState[];
+  onClickDelete: (repo: RepositoryState) => void;
 }
 
-const StoredRepositoryList = ({ repositoryList }: StoredRepositoryListProps) => {
+const StoredRepositoryList = ({ repositoryList, onClickDelete }: StoredRepositoryListProps) => {
   return (
     <S.Container>
       <Link to="/repository">
@@ -24,7 +25,7 @@ const StoredRepositoryList = ({ repositoryList }: StoredRepositoryListProps) => 
       </Link>
       <Spacer />
       {repositoryList.map((repo) => (
-        <Repository key={repo.id} {...repo} />
+        <Repository key={repo.id} repository={repo} icon="X" onClick={() => onClickDelete(repo)} />
       ))}
     </S.Container>
   );
