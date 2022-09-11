@@ -17,7 +17,7 @@ const IconWithCount = ({ icon, count }: IconWithCountProps) => {
     <S.Container>
       <Icon icon={icon} width={24} height={24} />
       <Spacer x={5} />
-      <Text fontSize={12}>{count}</Text>
+      <Text fontSize={12}>{count >= 1000 ? `${Math.floor(count / 1000)}k` : count}</Text>
     </S.Container>
   );
 };
