@@ -5,7 +5,7 @@ import { GetRepositoryIssuesProps, GetRepositoryIssuesParams, IssueState } from 
 const reposBaseUrl = '/repos';
 
 const reposUrl = {
-  listRepositoryIssues: ({ owner, repo }: GetRepositoryIssuesProps) => `${reposBaseUrl}/${owner}/${repo}/issues`,
+  repositoryIssues: ({ owner, repo }: GetRepositoryIssuesProps) => `${reposBaseUrl}/${owner}/${repo}/issues`,
 };
 
 export const getRepositoryIssues = ({
@@ -25,7 +25,7 @@ export const getRepositoryIssues = ({
 }: GetRepositoryIssuesProps & Partial<GetRepositoryIssuesParams>) =>
   request<IssueState[], null, Partial<GetRepositoryIssuesParams>>(
     'GET',
-    reposUrl.listRepositoryIssues({ owner, repo }),
+    reposUrl.repositoryIssues({ owner, repo }),
     null,
     {
       milestone,
