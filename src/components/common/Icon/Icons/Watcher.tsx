@@ -12,7 +12,7 @@ const Watcher = () => {
       width="80px"
       height="80px"
       viewBox="0 0 80 80"
-      enable-background="new 0 0 80 80"
+      enableBackground="new 0 0 80 80"
       xmlSpace="preserve"
     >
       <image
