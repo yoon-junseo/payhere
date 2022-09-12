@@ -3,7 +3,7 @@ import useSWRInfinite from 'swr/infinite';
 import { useInView } from 'react-intersection-observer';
 
 interface UseInfiniteScrollProps {
-  key: string;
+  key: string | string[];
   isPaused?: () => boolean;
   api: (key: string, pageIndex: number) => Promise<any>;
 }
@@ -21,6 +21,8 @@ const useInfiniteScroll = ({ key, isPaused, api }: UseInfiniteScrollProps) => {
 
   const { data, isValidating, error, setSize } = useSWRInfinite(getKey, api, {
     shouldRetryOnError: false,
+    revalidateOnMount: true,
+    revalidateIfStale: true,
     isPaused: isPaused ? () => isPaused() : () => false,
   });
 
@@ -30,7 +32,7 @@ const useInfiniteScroll = ({ key, isPaused, api }: UseInfiniteScrollProps) => {
   }, [inView]);
 
   return {
-    data,
+    data: data?.flat(),
     isValidating,
     error,
     ref,
