@@ -53,7 +53,7 @@ const MainPage = () => {
           <S.GridContainer height={height - 70}>
             {data && (
               <>
-                {data.flat().map((repo: RepositoryState) => (
+                {data.map((repo: RepositoryState) => (
                   <S.List>
                     <Repository repository={repo} icon="Plus" onClick={() => onClickStore('repository', repo)} />
                   </S.List>
