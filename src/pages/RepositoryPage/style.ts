@@ -61,3 +61,5 @@ export const IssueListContainer = styled.ol<{ height: number }>`
     margin-bottom: 20px;
   }
 `;
+
+export const InfiniteScrollChecker = styled.div``;
