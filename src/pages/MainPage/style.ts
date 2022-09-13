@@ -24,6 +24,8 @@ export const Container = styled.div`
 `;
 
 export const SearchContainer = styled.section`
+  position: relative;
+
   max-width: 640px;
 
   width: 100%;
@@ -69,8 +71,10 @@ export const List = styled.li``;
 
 export const InfiniteScrollChecker = styled.div``;
 
-export const SpinnerWrapper = styled.div`
-  width: 100%;
+export const SpinnerWrapper = styled.div<{ top: string }>`
+  position: absolute;
+  top: ${({ top }) => top};
+  z-index: 9999;
 
-  margin-top: -70px;
+  width: 100%;
 `;
