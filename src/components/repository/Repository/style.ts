@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { boxDesign } from '@/styles/common';
+import { boxDesign, textEllipsis } from '@/styles/common';
 import Theme from '@/styles/Theme';
 
 export const Container = styled.div`
@@ -24,6 +24,10 @@ export const DescriptionWrapper = styled.p`
 export const OtherInfoContainer = styled.div`
   display: flex;
   align-items: center;
+
+  span {
+    ${textEllipsis};
+  }
 
   & > :not(:last-child) {
     margin-right: 10px;
