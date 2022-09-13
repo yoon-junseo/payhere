@@ -24,7 +24,7 @@ const SearchInput = ({ target, isLoading, onChange }: SearchInputProps) => {
         placeholder="public repository"
         onChange={onChange}
       />
-      {isLoading ? <Icon icon="Spinner" width={20} height={20} /> : <Icon icon="Search" hasCursor />}
+      {isLoading ? <Icon icon="Spinner" width={25} height={25} /> : <Icon icon="Search" hasCursor />}
     </S.Container>
   );
 };
