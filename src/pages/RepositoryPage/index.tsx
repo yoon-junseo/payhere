@@ -27,10 +27,10 @@ const RepositoryPage = () => {
 
   const { repositoryList, onClickDelete } = useStoreRepository();
 
-  const { data, error, isValidating, ref } = useInfiniteScroll({
+  const { data, isValidating, ref } = useInfiniteScroll({
     key: repositoryList.map(({ owner, name }) => swrKeys.GET_REPOSITORY_ISSUES({ owner: owner.login, repo: name })),
     isPaused: () => hasRepository,
-    api: (key, pageIndex) => {
+    api: (_, pageIndex) => {
       return Promise.all(
         repositoryList.map(async ({ owner, name }) => {
           return await getRepositoryIssues({ owner: owner.login, repo: name, page: pageIndex + 1 });
