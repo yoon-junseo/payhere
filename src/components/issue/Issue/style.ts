@@ -8,12 +8,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  box-sizing: border-box;
-
   width: 100%;
 
-  max-width: 620px;
-  min-height: 65px;
+  max-width: 600px;
 
   padding: 5px 0 5px 10px;
 

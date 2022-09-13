@@ -8,8 +8,6 @@ export const Container = styled.div`
 
   max-width: 450px;
 
-  box-sizing: border-box;
-
   width: 100%;
   padding: 10px 10px;
 
