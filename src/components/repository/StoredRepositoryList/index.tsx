@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from '@/components/common/Link';
 
 import { RepositoryState } from '@/lib/api/types';
-
-import useStoreRepository from '@/hooks/useStoreRepository';
 
 import Repository from '@/components/repository/Repository';
 

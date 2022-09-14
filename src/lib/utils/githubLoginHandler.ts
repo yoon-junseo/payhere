@@ -15,7 +15,7 @@ const githubLoginHandler = () => {
 
     cookies.set('accessToken', credential.accessToken, {
       path: '/',
-      expires: new Date(Date.now() + 1000 * 60 * 59),
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 7),
       secure: true,
     });
 
