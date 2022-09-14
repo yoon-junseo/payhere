@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { boxDesign, textEllipsis } from '@/styles/common';
+import { boxDesign } from '@/styles/common';
 import Theme from '@/styles/Theme';
 
 export const Container = styled.div`
@@ -12,6 +12,9 @@ export const Container = styled.div`
   padding: 10px 10px;
 
   ${boxDesign(6)};
+
+  & > :last-child {
+  }
 `;
 
 export const DescriptionWrapper = styled.p`
@@ -19,19 +22,6 @@ export const DescriptionWrapper = styled.p`
   color: ${Theme.F_3};
 
   word-break: break-all;
-`;
-
-export const OtherInfoContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  span {
-    ${textEllipsis};
-  }
-
-  & > :not(:last-child) {
-    margin-right: 10px;
-  }
 `;
 
 export const IconWrapper = styled.div`

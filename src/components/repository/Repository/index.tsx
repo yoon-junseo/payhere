@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { RepositoryState } from '@/lib/api/types';
 
@@ -8,6 +8,7 @@ import Text from '@/components/common/Text';
 import Spacer from '@/components/common/Spacer';
 
 import IconWithCount, { IconWithCountProps } from '@/components/repository/IconWithCount';
+import SubInformation from '@/components/repository/Repository/SubInformation';
 
 import Theme from '@/styles/Theme';
 
@@ -20,22 +21,6 @@ export interface RepositoryProps {
 }
 
 const Repository = ({ repository, icon, onClick }: RepositoryProps) => {
-  const iconWithCountList: IconWithCountProps[] = [
-    { icon: 'Bookmark', count: repository.stargazers_count },
-    {
-      icon: 'Fork',
-      count: repository.forks_count,
-    },
-    {
-      icon: 'Watcher',
-      count: repository.watchers_count,
-    },
-    {
-      icon: 'Opened',
-      count: repository.open_issues_count,
-    },
-  ];
-
   const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
   const mouseOverHandler = () => {
@@ -59,17 +44,10 @@ const Repository = ({ repository, icon, onClick }: RepositoryProps) => {
       <Spacer y={10} />
       <S.DescriptionWrapper>{repository.description}</S.DescriptionWrapper>
       <Spacer y={10} />
-      <S.OtherInfoContainer>
-        <Text fontColor={Theme.F_2}>{repository.language}</Text>
-        {iconWithCountList.map(({ icon, count }) => (
-          <IconWithCount key={`${icon}${count}`} icon={icon} count={count} />
-        ))}
-      </S.OtherInfoContainer>
-      {isMouseOver && (
-        <S.IconWrapper onClick={onClick}>
-          <Icon icon={icon} width={24} height={24} hasCursor />
-        </S.IconWrapper>
-      )}
+      <SubInformation {...repository} />
+      <S.IconWrapper onClick={onClick}>
+        <Icon icon={icon} width={24} height={24} hasCursor />
+      </S.IconWrapper>
     </S.Container>
   );
 };
