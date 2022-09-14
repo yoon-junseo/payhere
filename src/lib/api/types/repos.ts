@@ -1,6 +1,6 @@
 import { Id, UrlState, RepositoryUrlState, UserState, DateState } from '@/lib/api/types';
 
-export interface LicenseState extends UrlState {
+export interface LicenseState extends UrlState, Omit<Id, 'id'> {
   title: string;
   description: string;
   key: string;
