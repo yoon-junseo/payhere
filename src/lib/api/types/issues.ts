@@ -1,6 +1,6 @@
-import { Id, NodeId, UrlState, UserState } from '@/lib/api/types';
+import { Id, UrlState, UserState } from '@/lib/api/types';
 
-export interface LabelState extends Id, NodeId, Omit<UrlState, 'html_url'> {
+export interface LabelState extends Id, Omit<UrlState, 'html_url'> {
   name: string;
   color: string | null;
   default: boolean;
@@ -19,7 +19,7 @@ export interface ReactionState extends Omit<UrlState, 'html_url'> {
   eyes: number;
 }
 
-export interface MilestoneState extends Id, NodeId, UrlState {
+export interface MilestoneState extends Id, UrlState {
   labels_url: string;
   number: number;
   state: string;
@@ -34,7 +34,7 @@ export interface MilestoneState extends Id, NodeId, UrlState {
   due_on: string | null;
 }
 
-export interface IssueState extends Id, NodeId, UrlState {
+export interface IssueState extends Id, UrlState {
   number: number;
   title: string;
   repository_url: string;

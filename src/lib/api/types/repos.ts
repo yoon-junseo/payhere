@@ -1,4 +1,4 @@
-import { Id, NodeId, UrlState, RepositoryUrlState, UserState } from '@/lib/api/types';
+import { Id, UrlState, RepositoryUrlState, UserState } from '@/lib/api/types';
 
 export interface LicenseState extends UrlState {
   title: string;
@@ -8,7 +8,7 @@ export interface LicenseState extends UrlState {
   node_id: string;
 }
 
-export interface RepositoryState extends Id, NodeId, RepositoryUrlState {
+export interface RepositoryState extends Id, RepositoryUrlState {
   name: string;
   full_name: string;
   private: boolean;

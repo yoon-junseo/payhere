@@ -9,7 +9,3 @@ export interface Id {
   id: number;
   node_id: string;
 }
-
-export interface NodeId {
-  node_id: string;
-}
