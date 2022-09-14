@@ -1,4 +1,4 @@
-import { Id, UrlState, UserState } from '@/lib/api/types';
+import { Id, UrlState, UserState, DateState } from '@/lib/api/types';
 
 export interface LabelState extends Id, Omit<UrlState, 'html_url'> {
   name: string;
@@ -19,7 +19,7 @@ export interface ReactionState extends Omit<UrlState, 'html_url'> {
   eyes: number;
 }
 
-export interface MilestoneState extends Id, UrlState {
+export interface MilestoneState extends Id, UrlState, Omit<DateState, 'pushed_at'> {
   labels_url: string;
   number: number;
   state: string;
@@ -28,9 +28,6 @@ export interface MilestoneState extends Id, UrlState {
   creator: UserState;
   open_issues: number;
   closed_issues: number;
-  created_at: string;
-  updated_at: string;
-  closed_at: string;
   due_on: string | null;
 }
 
@@ -39,7 +36,7 @@ export interface PerformedViaGithubAppState extends Id {
   owner: UserState;
 }
 
-export interface IssueState extends Id, UrlState {
+export interface IssueState extends Id, UrlState, Omit<DateState, 'pushed_at' | 'closed_at'> {
   number: number;
   title: string;
   repository_url: string;
@@ -58,8 +55,6 @@ export interface IssueState extends Id, UrlState {
   reactions: ReactionState;
   comments: number;
   closed_at: string | null;
-  created_at: string;
-  updated_at: string;
   author_association: string;
   timeline_url: string;
   performed_via_github_app: PerformedViaGithubAppState | null;
