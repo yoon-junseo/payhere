@@ -34,6 +34,11 @@ export interface MilestoneState extends Id, UrlState {
   due_on: string | null;
 }
 
+export interface PerformedViaGithubAppState extends Id {
+  slug: string;
+  owner: UserState;
+}
+
 export interface IssueState extends Id, UrlState {
   number: number;
   title: string;
@@ -52,22 +57,11 @@ export interface IssueState extends Id, UrlState {
   body: string;
   reactions: ReactionState;
   comments: number;
-  // pull_request: UrlState & {
-  //   diff_url: string | null;
-  //   patch_url: string | null;
-  //   merged_at: string | null;
-  // };
   closed_at: string | null;
   created_at: string;
   updated_at: string;
   author_association: string;
   timeline_url: string;
-  performed_via_github_app: {
-    id: number;
-    slug: string;
-    node_id: string;
-    owner: UserState;
-  } | null;
+  performed_via_github_app: PerformedViaGithubAppState | null;
   state_reason: string | null;
-  // draft: boolean;
 }
