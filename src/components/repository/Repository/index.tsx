@@ -2,15 +2,12 @@ import React, { useState, useCallback } from 'react';
 
 import { RepositoryState } from '@/lib/api/types';
 
-import Anchor from '@/components/common/Anchor';
 import Icon from '@/components/common/Icon';
-import Text from '@/components/common/Text';
 import Spacer from '@/components/common/Spacer';
 
-import IconWithCount, { IconWithCountProps } from '@/components/repository/IconWithCount';
+import Title from '@/components/repository/Repository/Title';
+import Description from '@/components/repository/Repository/Description';
 import SubInformation from '@/components/repository/Repository/SubInformation';
-
-import Theme from '@/styles/Theme';
 
 import * as S from './style';
 
@@ -23,31 +20,26 @@ export interface RepositoryProps {
 const Repository = ({ repository, icon, onClick }: RepositoryProps) => {
   const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
-  const mouseOverHandler = () => {
+  const mouseOverHandler = useCallback(() => {
     setIsMouseOver(true);
-  };
+  }, []);
 
-  const mouseLeaveHandler = () => {
+  const mouseLeaveHandler = useCallback(() => {
     setIsMouseOver(false);
-  };
+  }, []);
 
   return (
     <S.Container onMouseOver={mouseOverHandler} onMouseLeave={mouseLeaveHandler}>
-      <Text fontSize={16} fontWeight={600}>
-        <Anchor href={repository.owner.html_url} target="_blank">
-          [{repository.owner.login}]
-        </Anchor>{' '}
-        <Anchor href={repository.html_url} target="_blank">
-          {repository.name}
-        </Anchor>
-      </Text>
+      <Title {...repository} />
       <Spacer y={10} />
-      <S.DescriptionWrapper>{repository.description}</S.DescriptionWrapper>
+      <Description>{repository.description}</Description>
       <Spacer y={10} />
       <SubInformation {...repository} />
-      <S.IconWrapper onClick={onClick}>
-        <Icon icon={icon} width={24} height={24} hasCursor />
-      </S.IconWrapper>
+      {isMouseOver && (
+        <S.IconWrapper onClick={onClick}>
+          <Icon icon={icon} width={24} height={24} hasCursor />
+        </S.IconWrapper>
+      )}
     </S.Container>
   );
 };
