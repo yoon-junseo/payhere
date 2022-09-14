@@ -74,4 +74,4 @@ const Repository = ({ repository, icon, onClick }: RepositoryProps) => {
   );
 };
 
-export default Repository;
+export default React.memo(Repository);

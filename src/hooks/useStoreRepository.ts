@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import { RepositoryState } from '@/lib/api/types';
 import { constants, getItem, setItem } from '@/lib/utils/localStorage';
@@ -6,7 +6,7 @@ import { constants, getItem, setItem } from '@/lib/utils/localStorage';
 const useStoreRepository = () => {
   const [repositoryList, setRepositoryList] = useState<RepositoryState[]>([]);
 
-  const onClickStore = (key: string, value: RepositoryState) => {
+  const onClickStore = useCallback((key: string, value: RepositoryState) => {
     const storedRepositoryList: RepositoryState[] = getItem(constants.REPOSITORY, []);
 
     let isAlreadyStored = storedRepositoryList.some((storedRepository) => storedRepository.id === value.id);
@@ -25,16 +25,19 @@ const useStoreRepository = () => {
 
     setItem(key, tempRepositoryList);
     setRepositoryList(tempRepositoryList);
-  };
+  }, []);
 
-  const onClickDelete = (repo: RepositoryState) => {
-    const tempRepositoryList = [...repositoryList];
+  const onClickDelete = useCallback(
+    (repo: RepositoryState) => {
+      const tempRepositoryList = [...repositoryList];
 
-    const filteredRepositoryList = tempRepositoryList.filter((storedRepository) => storedRepository.id !== repo.id);
+      const filteredRepositoryList = tempRepositoryList.filter((storedRepository) => storedRepository.id !== repo.id);
 
-    setRepositoryList(filteredRepositoryList);
-    setItem(constants.REPOSITORY, filteredRepositoryList);
-  };
+      setRepositoryList(filteredRepositoryList);
+      setItem(constants.REPOSITORY, filteredRepositoryList);
+    },
+    [repositoryList],
+  );
 
   useEffect(() => {
     const storedRepositoryList: RepositoryState[] = getItem('repository', []);
