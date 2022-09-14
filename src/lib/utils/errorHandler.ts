@@ -25,7 +25,7 @@ const errorHandler = (error: AxiosError, key: string) => {
   }
 
   if (errorData.message === errorMessage.BAD_CREDENTIALS) {
-    alert('로그인 시간이 만료 되었습니다!\n ');
+    alert('로그인 시간이 만료 되었습니다!');
 
     githubLoginHandler();
 
