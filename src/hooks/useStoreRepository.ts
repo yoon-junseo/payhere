@@ -16,6 +16,11 @@ const useStoreRepository = () => {
       return;
     }
 
+    if (storedRepositoryList.length >= 4) {
+      alert('등록 가능한 Repository는 최대 4개입니다!');
+      return;
+    }
+
     const tempRepositoryList = [...storedRepositoryList, value];
 
     setItem(key, tempRepositoryList);

@@ -10,7 +10,6 @@ export const Wrapper = styled.span<{ color: string }>`
   background-color: ${({ color }) => color};
   border-radius: 12px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
 
   font-size: 12px;
   color: ${({ color }) => (color === '#ffffff' ? Theme.F_1 : Theme.M_1)};

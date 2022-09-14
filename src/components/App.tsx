@@ -5,6 +5,8 @@ import errorHandler from '@/lib/utils/errorHandler';
 
 import Router from '@/Router';
 
+import { GlobalStyle } from '@/styles/GlobalStyle';
+
 const App = () => {
   return (
     <SWRConfig
@@ -12,6 +14,7 @@ const App = () => {
         onError: errorHandler,
       }}
     >
+      <GlobalStyle />
       <Router />
     </SWRConfig>
   );

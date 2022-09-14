@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 
 import { RepositoryState } from '@/lib/api/types';
 import { getSearchRepositories } from '@/lib/api/search';
@@ -29,11 +29,13 @@ const MainPage = () => {
 
   const { repositoryList, onClickStore, onClickDelete } = useStoreRepository();
 
-  const { data, error, isValidating, ref } = useInfiniteScroll({
+  const { data, isValidating, ref } = useInfiniteScroll({
     key: swrKeys.GET_SEARCH_REPOSITORIES({ q: debouncedValue }),
     isPaused: () => debouncedValue === '',
-    api: (key, pageIndex) => getSearchRepositories({ q: debouncedValue, page: pageIndex + 1 }),
+    api: (_, pageIndex) => getSearchRepositories({ q: debouncedValue, page: pageIndex + 1 }),
   });
+
+  const isInitialFetch = useMemo(() => data === undefined, [data]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTarget(e.target.value);
@@ -54,7 +56,7 @@ const MainPage = () => {
             {data && (
               <>
                 {data.map((repo: RepositoryState) => (
-                  <S.List>
+                  <S.List key={repo.id}>
                     <Repository repository={repo} icon="Plus" onClick={() => onClickStore('repository', repo)} />
                   </S.List>
                 ))}
@@ -63,7 +65,7 @@ const MainPage = () => {
             )}
           </S.GridContainer>
           {isValidating && (
-            <S.SpinnerWrapper>
+            <S.SpinnerWrapper top={isInitialFetch ? '50%' : '90%'}>
               <Icon icon="Spinner" width={70} height={70} />
             </S.SpinnerWrapper>
           )}
