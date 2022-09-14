@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react';
+import React, { useRef, useState, useEffect, useMemo, useCallback } from 'react';
 
 import { RepositoryState } from '@/lib/api/types';
 import { getSearchRepositories } from '@/lib/api/search';
@@ -37,9 +37,9 @@ const MainPage = () => {
 
   const isInitialFetch = useMemo(() => data === undefined, [data]);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setTarget(e.target.value);
-  };
+  }, []);
 
   useEffect(() => {
     if (!containerRef.current) return;

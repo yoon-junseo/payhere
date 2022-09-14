@@ -46,4 +46,4 @@ const GNB = () => {
   );
 };
 
-export default GNB;
+export default React.memo(GNB);

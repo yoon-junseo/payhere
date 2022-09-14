@@ -84,4 +84,4 @@ const Issue = ({ ...issue }: IssueState) => {
   );
 };
 
-export default Issue;
+export default React.memo(Issue);
