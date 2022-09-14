@@ -22,4 +22,4 @@ const AvatarList = ({ assignees }: AvatarListProps) => {
   );
 };
 
-export default AvatarList;
+export default React.memo(AvatarList);
