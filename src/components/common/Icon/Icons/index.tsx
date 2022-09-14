@@ -1,3 +1,4 @@
+export { default as Arrow } from './Arrow';
 export { default as Bookmark } from './Bookmark';
 export { default as Closed } from './Closed';
 export { default as FilledBookmark } from './FilledBookmark';
