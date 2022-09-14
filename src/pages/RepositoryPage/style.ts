@@ -40,6 +40,10 @@ export const Section = styled.section`
     display: flex;
     justify-content: center;
   }
+
+  & > :nth-child(2) {
+    float: right;
+  }
 `;
 
 export const IssueListContainer = styled.ol<{ height: number }>`
