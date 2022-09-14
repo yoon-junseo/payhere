@@ -1,11 +1,11 @@
-import { Id, NodeId, UrlState, UserUrlState } from '@/lib/api/types';
+import { Id, UrlState, UserUrlState } from '@/lib/api/types';
 
-export interface OwnerState extends Id, NodeId, UrlState, UserState {
+export interface OwnerState extends Id, UrlState, UserState {
   title: string;
   description: string | null;
 }
 
-export interface UserState extends Id, NodeId, UrlState, UserUrlState {
+export interface UserState extends Id, UrlState, UserUrlState {
   login: string;
   // name: string | null;
   // email: string | null;

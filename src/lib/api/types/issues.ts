@@ -1,6 +1,6 @@
-import { Id, NodeId, UrlState, UserState } from '@/lib/api/types';
+import { Id, UrlState, UserState, DateState } from '@/lib/api/types';
 
-export interface LabelState extends Id, NodeId, Omit<UrlState, 'html_url'> {
+export interface LabelState extends Id, Omit<UrlState, 'html_url'> {
   name: string;
   color: string | null;
   default: boolean;
@@ -19,7 +19,7 @@ export interface ReactionState extends Omit<UrlState, 'html_url'> {
   eyes: number;
 }
 
-export interface MilestoneState extends Id, NodeId, UrlState {
+export interface MilestoneState extends Id, UrlState, Omit<DateState, 'pushed_at'> {
   labels_url: string;
   number: number;
   state: string;
@@ -28,13 +28,15 @@ export interface MilestoneState extends Id, NodeId, UrlState {
   creator: UserState;
   open_issues: number;
   closed_issues: number;
-  created_at: string;
-  updated_at: string;
-  closed_at: string;
   due_on: string | null;
 }
 
-export interface IssueState extends Id, NodeId, UrlState {
+export interface PerformedViaGithubAppState extends Id {
+  slug: string;
+  owner: UserState;
+}
+
+export interface IssueState extends Id, UrlState, Omit<DateState, 'pushed_at' | 'closed_at'> {
   number: number;
   title: string;
   repository_url: string;
@@ -52,22 +54,9 @@ export interface IssueState extends Id, NodeId, UrlState {
   body: string;
   reactions: ReactionState;
   comments: number;
-  // pull_request: UrlState & {
-  //   diff_url: string | null;
-  //   patch_url: string | null;
-  //   merged_at: string | null;
-  // };
   closed_at: string | null;
-  created_at: string;
-  updated_at: string;
   author_association: string;
   timeline_url: string;
-  performed_via_github_app: {
-    id: number;
-    slug: string;
-    node_id: string;
-    owner: UserState;
-  } | null;
+  performed_via_github_app: PerformedViaGithubAppState | null;
   state_reason: string | null;
-  // draft: boolean;
 }

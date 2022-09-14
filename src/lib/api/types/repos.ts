@@ -1,6 +1,6 @@
-import { Id, NodeId, UrlState, RepositoryUrlState, UserState } from '@/lib/api/types';
+import { Id, UrlState, RepositoryUrlState, UserState, DateState } from '@/lib/api/types';
 
-export interface LicenseState extends UrlState {
+export interface LicenseState extends UrlState, Omit<Id, 'id'> {
   title: string;
   description: string;
   key: string;
@@ -8,16 +8,13 @@ export interface LicenseState extends UrlState {
   node_id: string;
 }
 
-export interface RepositoryState extends Id, NodeId, RepositoryUrlState {
+export interface RepositoryState extends Id, RepositoryUrlState, Omit<DateState, 'closed_at'> {
   name: string;
   full_name: string;
   private: boolean;
   owner: UserState;
   description: string | null;
   fork: boolean;
-  created_at: string;
-  updated_at: string;
-  pushed_at: string;
   size: number;
   stargazers_count: number;
   watchers_count: number;
